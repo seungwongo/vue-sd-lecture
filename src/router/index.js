@@ -466,6 +466,14 @@ const routes = [
       )
   },
   {
+    path: '/template/singleviewedit',
+    name: 'SingleViewEdit',
+    component: () =>
+      import(
+        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/SingleViewEdit.vue'
+      )
+  },
+  {
     path: '/template/listtodetail',
     name: 'ListToDetail',
     component: () =>
@@ -488,143 +496,152 @@ const routes = [
       import(
         /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/Detail.vue'
       )
-  },
-  {
-    path: '/template/15/singleviewedit',
-    name: 'SingleViewEdit',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit.vue'
-      )
-  },
-  {
-    path: '/template/15/singleviewedit2',
-    name: 'SingleViewEdit2',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit2.vue'
-      )
-  },
-  {
-    path: '/template/15/singleviewedit3',
-    name: 'SingleViewEdit3',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit3.vue'
-      )
-  },
-  {
-    path: '/template/9/singleviewedit',
-    name: 'SingleViewEdit',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/9/SingleViewEdit.vue'
-      )
-  },
-  {
-    path: '/template/9/singleviewedit2',
-    name: 'SingleViewEdit2',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/9/SingleViewEdit2.vue'
-      )
-  },
-  {
-    path: '/template/13/singleviewedit2',
-    name: 'SingleViewEdit2',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/13/SingleViewEdit2.vue'
-      )
-  },
-  {
-    path: '/template/13/singleviewedit3',
-    name: 'SingleViewEdit3',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/13/SingleViewEdit3.vue'
-      )
-  },
-  {
-    path: '/template/6/singleviewedit2',
-    name: 'SingleViewEdit2',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/6/SingleViewEdit2.vue'
-      )
-  },
-  {
-    path: '/template/6/singleviewedit3',
-    name: 'SingleViewEdit3',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/6/SingleViewEdit3.vue'
-      )
-  },
-  {
-    path: '/template/14/singleviewediteqp',
-    name: 'SingleViewEditEqp',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/SingleViewEditEqp.vue'
-      )
-  },
-  {
-    path: '/template/14/singlevieweditproduct',
-    name: 'SingleViewEditProduct',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/SingleViewEditProduct.vue'
-      )
-  },
-  {
-    path: '/template/10/singleviewedit4',
-    name: 'SingleViewEdit4',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/10/SingleViewEdit4.vue'
-      )
-  },
-  {
-    path: '/template/7/singleviewedit2',
-    name: 'SingleViewEdit2',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/7/SingleViewEdit2.vue'
-      )
-  },
-  {
-    path: '/template/15/listtodetail3',
-    name: 'ListToDetail3',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/ListToDetail3.vue'
-      )
-  },
-  {
-    path: '/uitemplate/create3',
-    name: 'Create3',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/Create3.vue'
-      )
-  },
-  {
-    path: '/template/14/listtodetail',
-    name: 'ListToDetailProduct',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/ListToDetailProduct.vue'
-      )
-  },
-  {
-    path: '/uitemplate/detailproduct',
-    name: 'DetailProduct',
-    component: () =>
-      import(
-        /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/DetailProduct.vue'
-      )
   }
+  // {
+  //   path: '/template/15/singleviewedit',
+  //   name: 'SingleViewEdit',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/15/singleviewedit2',
+  //   name: 'SingleViewEdit2',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit2.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/15/singleviewedit3',
+  //   name: 'SingleViewEdit3',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/SingleViewEdit3.vue'
+  //     )
+  // },
+
+  // {
+  //   path: '/template/9/singleviewedit',
+  //   name: 'SingleViewEdit',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/9/SingleViewEdit.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/9/singleviewedit2',
+  //   name: 'SingleViewEdit2',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/9/SingleViewEdit2.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/13/singleviewedit2',
+  //   name: 'SingleViewEdit2',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/13/SingleViewEdit2.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/13/singleviewedit3',
+  //   name: 'SingleViewEdit3',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/13/SingleViewEdit3.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/6/singleviewedit2',
+  //   name: 'SingleViewEdit2',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/6/SingleViewEdit2.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/6/singleviewedit3',
+  //   name: 'SingleViewEdit3',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/6/SingleViewEdit3.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/14/singleviewediteqp',
+  //   name: 'SingleViewEditEqp',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/SingleViewEditEqp.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/14/singlevieweditproduct',
+  //   name: 'SingleViewEditProduct',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/SingleViewEditProduct.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/10/singleviewedit4',
+  //   name: 'SingleViewEdit4',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/10/SingleViewEdit4.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/7/singleviewedit2',
+  //   name: 'SingleViewEdit2',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/7/SingleViewEdit2.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/15/listtodetail3',
+  //   name: 'ListToDetail3',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/ListToDetail3.vue'
+  //     )
+  // },
+  // {
+  //   path: '/uitemplate/create3',
+  //   name: 'Create3',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/Create3.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/14/listtodetail',
+  //   name: 'ListToDetailProduct',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/ListToDetailProduct.vue'
+  //     )
+  // },
+  // {
+  //   path: '/uitemplate/detailproduct',
+  //   name: 'DetailProduct',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/14/DetailProduct.vue'
+  //     )
+  // },
+  // {
+  //   path: '/template/15/masterdetail',
+  //   name: 'MasterDetail',
+  //   component: () =>
+  //     import(
+  //       /* webpackPrefetch:true, webpackChunkName: "store" */ '../views/9_utitemplate/15/MasterDetail4.vue'
+  //     )
+  // }
 ]
 
 const router = createRouter({

@@ -39,7 +39,7 @@
     </table>
 
     <div class="btn-area">
-      <button @click="doSave">저장</button>
+      <button @click="doSave" :disabled="!bChanged">저장</button>
     </div>
   </div>
 </template>
@@ -51,7 +51,35 @@ export default {
     return {
       items: [],
       customer: {},
-      customerId: ''
+      customerId: '',
+      oldCustomer: {},
+      originalCustomer: {},
+      bInit: false,
+      bChanged: false
+    }
+  },
+  watch: {
+    customer: {
+      deep: true,
+      handler(currentValue) {
+        console.log('oldValue', this.oldCustomer)
+        console.log('currentValue', currentValue)
+        // this.bChanged = true
+
+        if (this.oldCustomer.id && this.oldCustomer.id === currentValue.id) {
+          let hasChanged = false
+          for (const key in this.originalCustomer) {
+            if (this.originalCustomer[key] !== currentValue[key]) {
+              hasChanged = true
+            }
+          }
+          this.bChanged = hasChanged
+        } else {
+          this.bChanged = false
+        }
+
+        this.oldCustomer = JSON.parse(JSON.stringify(currentValue))
+      }
     }
   },
   setup() {},
@@ -97,7 +125,10 @@ export default {
         }
         return
       }
+
       this.customer = await this.$get(`/users/${this.customerId}`)
+      // this.originalCustomer = this.customer
+      this.originalCustomer = JSON.parse(JSON.stringify(this.customer)) //깊은복사
     },
     async getCustomer() {
       this.items = await this.$get('/users')

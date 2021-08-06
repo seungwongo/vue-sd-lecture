@@ -32,38 +32,19 @@
             />
           </td>
           <td :key="j" v-for="(h, j) in headers">
-            <template v-if="h.link">
-              <a class="link" @click="goToLink(item[h.linkKey], h.eventName)">{{
-                item[h['key']]
-              }}</a>
-            </template>
-            <template v-else-if="editable">
-              <input
-                type="text"
-                v-if="h.type == 'text'"
-                v-model="item[h['key']]"
-              />
-              <input
-                type="number"
-                v-else-if="h.type == 'number'"
-                v-model.number="item[h['key']]"
-              />
-              <select v-else-if="h.type == 'select'" v-model="item[h['key']]">
-                <option :value="opt.v" :key="opt.v" v-for="opt in h.options">{{
-                  opt.t
-                }}</option>
-              </select>
-              <span v-else>{{ item[h['key']] }}</span>
-            </template>
-            <template v-else>{{ item[h['key']] }}</template>
+            <a
+              class="link"
+              v-if="h.link"
+              @click="goToLink(item[h.linkKey], h.eventName)"
+              >{{ item[h['key']] }}</a
+            >
+            <span v-else>{{ item[h['key']] }}</span>
           </td>
         </tr>
       </tbody>
       <tbody v-show="showList.length == 0">
         <tr>
-          <td :colspan="headers.length + (selectType != '' ? 1 : 0)">
-            No Data.
-          </td>
+          <td :colspan="headers.length">No Data.</td>
         </tr>
       </tbody>
     </table>
@@ -93,24 +74,13 @@ export default {
     },
     headers: {
       type: Array,
-      default: function() {
-        return []
-        // [
-        // {
-        //  title:'컬럼명',
-        //  key:'items의 오브젝트 키',
-        //  link:false,
-        //  linkKey:'',
-        //  eventName:'',
-        //  type:'text인지, select인지',
-        //  options:[{v:'', t:''}] - type이 select인 경우
-        //  }
-        //  ]
+      default: function () {
+        return [] // [{title:'컬럼명', key:'items의 오브젝트 키', link:false, linkKey:'', eventName:''}]
       }
     },
     items: {
       type: Array,
-      default: function() {
+      default: function () {
         return []
       }
     },
@@ -135,10 +105,6 @@ export default {
       default: ''
     },
     bHover: {
-      type: Boolean,
-      default: false
-    },
-    editable: {
       type: Boolean,
       default: false
     }
@@ -190,15 +156,12 @@ export default {
       if (f === '') {
         this.filterList = this.items
       } else {
-        this.filterList = this.items.filter(item => {
+        this.filterList = this.items.filter((item) => {
           const len = this.headers.length
           let isExist = false
           for (let i = 0; i < len; i++) {
             if (
-              item[this.headers[i].key]
-                .toString()
-                .toLowerCase()
-                .indexOf(f) > -1
+              item[this.headers[i].key].toString().toLowerCase().indexOf(f) > -1
             ) {
               isExist = true
               break
@@ -218,7 +181,7 @@ export default {
       const sortValue1 = this.sortValue
       const sortValue2 = this.sortValue * -1
 
-      this.filterList = this.filterList.sort(function(a, b) {
+      this.filterList = this.filterList.sort(function (a, b) {
         return a[key] > b[key] ? sortValue1 : b[key] > a[key] ? sortValue2 : 0
       })
 
